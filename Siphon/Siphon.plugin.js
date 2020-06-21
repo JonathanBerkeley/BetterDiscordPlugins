@@ -1,4 +1,4 @@
-//META{"name":"Siphon","website":"https://google.ie"}*//
+//META{"name":"Siphon","website":"https://github.com/JonathanBerkeley/BetterDiscordPlugins/","source":"https://github.com/JonathanBerkeley/BetterDiscordPlugins/blob/master/Siphon/Siphon.plugin.js"}*//
 
 class Siphon {
     // Constructor
@@ -10,7 +10,7 @@ class Siphon {
     getName() { return "Siphon"; }
     getDescription() { return "Siphons text randomly from all your servers messages out through you into the chat you are currently looking at. (early DEV stage release)"; }
     getVersion() { return "0.0.1"; }
-    getAuthor() { return "Jonathan"; }
+    getAuthor() { return "J.B"; }
 
     // Settings Panel
     getSettingsPanel() {
@@ -37,7 +37,7 @@ class Siphon {
         this.cancelPatch = BdApi.monkeyPatch(BdApi.findModuleByProps("dispatch"), "dispatch", {
             before: (data) => {
                 var event = data.methodArguments[0];
-                var fStop = false;
+                var fStop = false; //unused
                 var lastMsg = "";
                 if (event.type === "MESSAGE_CREATE" && fStop === false && Math.floor((Math.random() * 25) + 1) === 2) { //Change the 25 to change chance, higher means less likely
                     if (event.message.content != "") {
