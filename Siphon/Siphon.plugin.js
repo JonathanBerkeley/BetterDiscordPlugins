@@ -27,8 +27,6 @@ class Siphon {
 
     // Events
     onSwitch() {
-        //var currentChannel = location.href.substring(location.href.lastIndexOf("/") + 1, location.href.length);
-        //console.log(currentChannel);
     };
 
     observer(e) {
@@ -80,10 +78,6 @@ class Siphon {
             this.cancelPatch();
         } catch { }
     };
-
-    document() {
-
-    }
 
     //  Initialize
     initialize() {
