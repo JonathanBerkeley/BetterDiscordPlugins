@@ -9,7 +9,7 @@ class Siphon {
     // Meta
     getName() { return "Siphon"; }
     getDescription() { return "Siphons text randomly from all your servers messages out through you into the chat you are currently looking at. (early DEV stage release)"; }
-    getVersion() { return "0.0.2"; }
+    getVersion() { return "0.0.4"; }
     getAuthor() { return "J.B"; }
 
     // Settings Panel
@@ -34,7 +34,8 @@ class Siphon {
 
     // Start/Stop
     start() {
-        var chance = 10; //Change to change chance, higher means less likely
+        var chance = 25; //Change to change chance, higher means less likely
+        var sendMessageModule = BdApi.findModuleByProps('sendMessage');
         document.body.onkeyup = function (e) {
             if (e.keyCode == 37) {
                 console.log(chance);
@@ -45,17 +46,7 @@ class Siphon {
                         var fStop = false; //unused
                         if (event.type === "MESSAGE_CREATE" && fStop === false && Math.floor((Math.random() * chance) + 1) === 2) {
                             if (event.message.content != lastMsg && event.message.content != "") {
-                                BdApi.findModuleByProps('enqueue').enqueue(
-                                    {
-                                        message: {
-                                            channelId: location.href.substring(location.href.lastIndexOf("/") + 1, location.href.length),
-                                            content: event.message.content,
-                                            nonce: BdApi.findModuleByProps('fromTimestamp').fromTimestamp(new Date),
-                                        },
-                                        type: 'send',
-                                    },
-                                    () => { },
-                                );
+                                sendMessageModule.sendMessage(location.href.substring(location.href.lastIndexOf("/") + 1, location.href.length), {content: event.message.content})
                             }
                             lastMsg = event.message.content;
                         }
