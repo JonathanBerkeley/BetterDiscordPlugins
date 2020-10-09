@@ -1,4 +1,5 @@
-Siphons text randomly from all your discord servers messages out through you into the chat you are currently looking at. (early DEV stage release)
+# (Unmaintained)
+Siphons text randomly from all your discord servers messages out through you into the chat you are currently looking at. 
 Keybinds: Left arrow to enable. Right arrow to disable.
 
 For use with BetterDiscord. Needs to be installed in the plugin folder which can be accessed through BetterDiscord settings -> plugin -> open plugin folder.
