@@ -1,4 +1,3 @@
-# (Unmaintained / Unstable)
 Siphons text randomly from all your discord servers messages out through you into the chat you are currently looking at. 
 Keybinds: Left arrow to enable. Right arrow to disable.
 
